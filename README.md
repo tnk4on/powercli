@@ -1,5 +1,8 @@
 # powercli
 
+![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/tnk4on/powercli)
+![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/tnk4on/powercli)
+
 [English](README.md) / [Japanese](README_ja.md)
 
 - This description assumes the use of [Podman](https://github.com/containers/podman) and [Buildah](https://github.com/containers/buildah). If you are using Docker, please read as appropriate.

@@ -1,0 +1,20 @@
+# Containerfile for tnk4on/powercli:alpine-scratch
+FROM alpine
+LABEL maintainer="Shion Tanaka / Twitter(@tnk4on)"
+ENV TERM=linux \
+    DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 \
+    POWERSHELL_TELEMETRY_OPTOUT=1
+WORKDIR /root
+RUN apk --no-cache add gcc ncurses-terminfo-base \
+&& wget https://github.com/PowerShell/PowerShell/releases/download/v7.2.0-preview.7/powershell-7.2.0-preview.7-linux-alpine-x64.tar.gz \
+&& mkdir -p /usr/lib/powershell \
+&& tar xzf powershell-7.2.0-preview.7-linux-alpine-x64.tar.gz -C /usr/lib/powershell \
+&& rm -rf powershell-7.2.0-preview.7-linux-alpine-x64.tar.gz \
+&& ln -s /usr/lib/powershell/pwsh /bin/pwsh \
+&& pwsh \
+        -NoLogo \
+        -NoProfile \
+        -Command " \
+            Set-PSRepository -Name PSGallery -InstallationPolicy Trusted ; \
+            Install-Module -Name VMware.PowerCLI"
+CMD ["/bin/pwsh"]

@@ -1,0 +1,12 @@
+# Containerfile for tnk4on/powercli:mcr-alpine-3.12
+FROM mcr.microsoft.com/powershell:preview-alpine-3.12
+LABEL maintainer="Shion Tanaka / Twitter(@tnk4on)"
+ENV TERM=linux \
+    POWERSHELL_TELEMETRY_OPTOUT=1
+RUN pwsh \
+        -NoLogo \
+        -NoProfile \
+        -Command " \
+            Set-PSRepository -Name PSGallery -InstallationPolicy Trusted ; \
+            Install-Module -Name VMware.PowerCLI"
+CMD ["/usr/bin/pwsh"]

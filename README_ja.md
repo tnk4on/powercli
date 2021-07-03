@@ -1,0 +1,45 @@
+# powercli
+
+[English](README.md) / [Japanese](README_ja.md)
+
+- [Podman](https://github.com/containers/podman)と[Buildah](https://github.com/containers/buildah)での使用を前提として記載しています。Dockerをお使いの場合は適宜読み替えてください。
+
+## 概要
+
+- **PowerCLI**: 様々なOS上でVMwareインフラストラクチャを管理するためのマルチプラットフォームのスクリプト言語です。
+
+### 参考
+- [VMware PowerCLI - VMware {code}](https://code.vmware.com/tool/vmware-powercli)
+- [vmware/powerclicore: PowerCLI Core Dockerfile](https://github.com/vmware/powerclicore)
+- [PowerShell/PowerShell: PowerShell for every system!](https://github.com/PowerShell/PowerShell)
+
+## コンテナイメージについて
+
+コンテナイメージのビルド方式により下記の4種類があります
+- `tnk4on/powercli:latest,mcr-alpine-3.12` -> Base Image:`mcr.microsoft.com/powershell:preview-alpine-3.12` (include PowerShell:`v7.2.0-preview.7`)
+- `tnk4on/powercli:ubi8-minimal` -> Base Image:`ubi8-minimal` + PowerShell:`v7.2.0-preview.7`
+- `tnk4on/powercli:alpine-scratch` -> Base Image:`alpine` + PowerShell:`v7.2.0-preview.7`
+- `tnk4on/powercli:photon` -> Base Image:`photon:3.0` + PowerShell:`v7.1.1`
+
+### 機能の特徴
+
+- VMware公式のイメージ([vmware/powerclicore](https://github.com/vmware/powerclicore))よりも小さいイメージサイズ
+- PowerCLI-Example-Scripts は含まれません
+- `POWERSHELL_TELEMETRY_OPTOUT` は有効化されています（オプトアウト）
+
+## 使い方
+
+```
+$ podman run --rm -it tnk4on/powercli
+```
+注釈: `CMD` には `pwsh` コマンドが設定されます。引数にコマンドを指定することで、実行コマンドを上書きすることができます。
+
+## コンテナイメージのビルド方法
+
+```
+$ git clone https://github.com/tnk4on/powercli
+$ cd powercli/Containerfile.d
+$ TYPE=mcr-alpine
+$ buildah bud -t tnk4on/powercli -f Containerfile.${TYPE}
+```
+注釈: `TYPE` にはビルドしたい名前を指定 (例 mcr-alpine)

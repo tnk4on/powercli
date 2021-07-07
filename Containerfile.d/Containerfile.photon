@@ -1,11 +1,11 @@
 # Containerfile for tnk4on/powercli:photon
 # Original from https://github.com/vmware/powerclicore
 
-FROM photon:3.0
+FROM photon:4.0
 LABEL maintainer="Shion Tanaka / Twitter(@tnk4on)"
 
-ARG PS_VERSION=7.1.1
-#ARG PS_VERSION=7.2.0-preview.7
+#ARG PS_VERSION=7.1.1
+ARG PS_VERSION=7.2.0-preview.7
 ARG PS_PACKAGE=powershell-${PS_VERSION}-linux-x64.tar.gz
 ARG PS_PACKAGE_URL=https://github.com/PowerShell/PowerShell/releases/download/v${PS_VERSION}/${PS_PACKAGE}
 
@@ -22,11 +22,11 @@ RUN echo "/usr/bin/pwsh" >> /etc/shells && \
     wget ${PS_PACKAGE_URL} && \
     tar -xvf /root/${PS_PACKAGE} -C /usr/lib/powershell && \
     rm -f /root/${PS_PACKAGE} } && \
-    rm /usr/lib/powershell/libssl.so.1.0.0 && \
-    rm /usr/lib/powershell/libcrypto.so.1.0.0 && \
-    ln -s /usr/lib/libssl.so.1.1 /usr/lib/powershell/libssl.so.1.0.0 && \
-    ln -s /usr/lib/libcrypto.so.1.1 /usr/lib/powershell/libcrypto.so.1.0.0 && \
-    pwsh -c "Enable-ExperimentalFeature PSDesiredStateConfiguration.InvokeDscResource" && \
+    # rm /usr/lib/powershell/libssl.so.1.0.0 && \
+    # rm /usr/lib/powershell/libcrypto.so.1.0.0 && \
+    # ln -s /usr/lib/libssl.so.1.1 /usr/lib/powershell/libssl.so.1.0.0 && \
+    # ln -s /usr/lib/libcrypto.so.1.1 /usr/lib/powershell/libcrypto.so.1.0.0 && \
+    # pwsh -c "Enable-ExperimentalFeature PSDesiredStateConfiguration.InvokeDscResource" && \
     pwsh -c "Set-PSRepository -Name PSGallery -InstallationPolicy Trusted" && \
     pwsh -c "\$ProgressPreference = \"SilentlyContinue\"; Install-Module VMware.PowerCLI" && \
     pwsh -c "\$ProgressPreference = \"SilentlyContinue\"; Install-Module VMware.vSphereDSC" && \
@@ -40,6 +40,7 @@ RUN echo "/usr/bin/pwsh" >> /etc/shells && \
     mv ./PowerCLI-Example-Scripts-* ./PowerCLI-Example-Scripts && \
     mv ./PowerCLI-Example-Scripts/Modules/* /usr/lib/powershell/Modules/ && \
     find / -name "net45" | xargs rm -rf && \
+    mkdir -p /root/.config/powershell && \
     echo '$ProgressPreference = "SilentlyContinue"' > /root/.config/powershell/Microsoft.PowerShell_profile.ps1 && \
     tdnf erase -y unzip && \
     tdnf clean all

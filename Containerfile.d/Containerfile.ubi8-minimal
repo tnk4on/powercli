@@ -6,9 +6,9 @@ ENV TERM=linux \
 RUN microdnf update --disableplugin=subscription-manager -y \
 && microdnf --disableplugin=subscription-manager install libicu -y \
 && microdnf clean all \
-&& curl -LO https://github.com/PowerShell/PowerShell/releases/download/v7.2.0-preview.7/powershell-preview-7.2.0_preview.7-1.rh.x86_64.rpm \
-&& rpm -ivh powershell-preview-7.2.0_preview.7-1.rh.x86_64.rpm \
-&& rm -rf powershell-preview-7.2.0_preview.7-1.rh.x86_64.rpm \
+&& curl -LO https://github.com/PowerShell/PowerShell/releases/download/v7.2.0-preview.8/powershell-preview-7.2.0_preview.8-1.rh.x86_64.rpm \
+&& rpm -ivh powershell-preview-7.2.0_preview.8-1.rh.x86_64.rpm \
+&& rm -rf powershell-preview-7.2.0_preview.8-1.rh.x86_64.rpm \
 && mv /usr/bin/pwsh-preview /usr/bin/pwsh \
 && pwsh \
         -NoLogo \

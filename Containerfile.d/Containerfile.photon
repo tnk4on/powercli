@@ -4,8 +4,7 @@
 FROM photon:4.0
 LABEL maintainer="Shion Tanaka / Twitter(@tnk4on)"
 
-#ARG PS_VERSION=7.1.1
-ARG PS_VERSION=7.2.0-preview.7
+ARG PS_VERSION=7.2.0-preview.8
 ARG PS_PACKAGE=powershell-${PS_VERSION}-linux-x64.tar.gz
 ARG PS_PACKAGE_URL=https://github.com/PowerShell/PowerShell/releases/download/v${PS_VERSION}/${PS_PACKAGE}
 

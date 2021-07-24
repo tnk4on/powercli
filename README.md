@@ -20,9 +20,9 @@
 
 There are four types of container images depending on how they are built
 - `tnk4on/powercli:latest,mcr-alpine-3.12` -> Base Image:`mcr.microsoft.com/powershell:preview-alpine-3.12` (include PowerShell:`v7.2.0-preview.7`)
-- `tnk4on/powercli:ubi8-minimal` -> Base Image:`ubi8-minimal` + PowerShell:`v7.2.0-preview.7`
-- `tnk4on/powercli:alpine-scratch` -> Base Image:`alpine` + PowerShell:`v7.2.0-preview.7`
-- `tnk4on/powercli:photon` -> Base Image:`photon:4.0` + PowerShell:`v7.2.0-preview.7`
+- `tnk4on/powercli:ubi8-minimal` -> Base Image:`ubi8-minimal` + PowerShell:`v7.2.0-preview.8`
+- `tnk4on/powercli:alpine-scratch` -> Base Image:`alpine` + PowerShell:`v7.2.0-preview.8`
+- `tnk4on/powercli:photon` -> Base Image:`photon:4.0` + PowerShell:`v7.2.0-preview.8`
 
 ### Features
 

@@ -1,8 +1,5 @@
 # Powercli: Container Image
 
-![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/tnk4on/powercli)
-![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/tnk4on/powercli)
-
 [English](README.md) / [Japanese](README_ja.md)
 
 - [Podman](https://github.com/containers/podman)と[Buildah](https://github.com/containers/buildah)での使用を前提として記載しています。Dockerをお使いの場合は適宜読み替えてください。
@@ -19,10 +16,10 @@
 ## コンテナイメージについて
 
 コンテナイメージのビルド方式により下記の4種類があります
-- `tnk4on/powercli:latest,mcr-alpine-3.12` -> Base Image:`mcr.microsoft.com/powershell:preview-alpine-3.12` (include PowerShell:`v7.2.0-preview.8`)
-- `tnk4on/powercli:ubi8-minimal` -> Base Image:`ubi8-minimal` + PowerShell:`v7.2.0-preview.8`
-- `tnk4on/powercli:alpine-scratch` -> Base Image:`alpine` + PowerShell:`v7.2.0-preview.8`
-- `tnk4on/powercli:photon` -> Base Image:`photon:4.0` + PowerShell:`v7.2.0-preview.8`
+- `tnk4on/powercli:latest,mcr-alpine-3.12` -> Base Image:`mcr.microsoft.com/powershell:mcr-alpine-3.12` (include PowerShell:`v7.1.4`)
+- `tnk4on/powercli:ubi8-minimal` -> Base Image:`ubi8-minimal` + PowerShell:`v7.1.4`
+- `tnk4on/powercli:alpine-scratch` -> Base Image:`alpine` + PowerShell:`v7.1.4`
+- `tnk4on/powercli:photon` -> Base Image:`photon:4.0` + PowerShell:`v7.1.4`
 
 ### 機能の特徴
 
@@ -45,4 +42,9 @@ $ cd powercli/Containerfile.d
 $ TYPE=mcr-alpine
 $ buildah bud -t tnk4on/powercli -f Containerfile.${TYPE}
 ```
-注釈: `TYPE` にはビルドしたい名前を指定 (例 mcr-alpine)
+注釈: `TYPE` にはビルドしたい名前を指定 (例 alpine-scratch)
+- `TYPE`
+    - alpine-scratch
+    - mcr-alpine-3.12
+    - photon
+    - ubi8-minimal

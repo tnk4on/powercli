@@ -1,5 +1,5 @@
 # Containerfile for tnk4on/powercli:ubi8-minimal
-FROM docker.io/redhat/ubi8-minimal  
+FROM registry.access.redhat.com/ubi8/ubi-minimal
 LABEL maintainer="Shion Tanaka / Twitter(@tnk4on)"
 ENV TERM=linux \
     POWERSHELL_TELEMETRY_OPTOUT=1

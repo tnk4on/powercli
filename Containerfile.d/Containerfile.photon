@@ -46,4 +46,4 @@ RUN echo "/usr/bin/pwsh" >> /etc/shells && \
     tdnf clean all
 
 CMD ["/bin/pwsh"]
-###
+####

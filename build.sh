@@ -5,22 +5,28 @@ CURDIR=$PWD
 cd Containerfile.d
 
 # Building Image
-buildah bud -t powercli:alpine-scratch -f Containerfile.alpine-scratch
-buildah bud -t powercli:mcr-alpine-3.12 -f Containerfile.mcr-alpine-3.12
-buildah bud -t powercli:photon -f Containerfile.photon
-buildah bud -t powercli:ubi8-minimal -f Containerfile.ubi8-minimal
+
+for f in Containerfile*
+do
+    echo "### Build ${f/Containerfile./} ###"
+    buildah bud -t powercli:${f/Containerfile./} -f $f
+done
 
 # Test
-podman run --rm powercli:alpine-scratch pwsh -v
-podman run --rm powercli:mcr-alpine-3.12 pwsh -v
-podman run --rm powercli:photon pwsh -v
-podman run --rm powercli:ubi8-minimal pwsh -v
+for f in Containerfile*
+do
+    echo "### Run ${f/Containerfile./} ###"
+    podman run --rm powercli:${f/Containerfile./} pwsh -v
+done
 
-# Push
-podman push powercli:alpine-scratch docker.io/tnk4on/powercli:alpine-scratch --format v2s2
-podman push powercli:mcr-alpine-3.12 docker.io/tnk4on/powercli --format v2s2
-podman push powercli:mcr-alpine-3.12 docker.io/tnk4on/powercli:mcr-alpine-3.12 --format v2s2
-podman push powercli:photon docker.io/tnk4on/powercli:photon --format v2s2
-podman push powercli:ubi8-minimal docker.io/tnk4on/powercli:ubi8-minimal --format v2s2
+# Push to Docker.io
+for f in Containerfile*
+do
+    echo "### Push ${f/Containerfile./} ###"
+    podman push powercli:${f/Containerfile./} docker.io/tnk4on/powercli:${f/Containerfile./} --format v2s2
+    if [ "${f/Containerfile./}" = "mcr-alpine-3.12" ]; then
+        podman push powercli:${f/Containerfile./} docker.io/tnk4on/powercli --format v2s2
+    fi
+done
 
 cd $CURDIR

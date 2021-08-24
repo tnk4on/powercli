@@ -5,6 +5,7 @@ ENV TERM=linux \
     DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 \
     POWERSHELL_TELEMETRY_OPTOUT=1
 
+# PowerShell Releases from https://github.com/PowerShell/PowerShell/releases
 ARG PS_PACKAGE=powershell-7.1.4-linux-alpine-x64.tar.gz
 ARG PS_PACKAGE_URL=https://github.com/PowerShell/PowerShell/releases/download/v7.1.4/powershell-7.1.4-linux-alpine-x64.tar.gz
 

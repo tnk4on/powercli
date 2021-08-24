@@ -4,7 +4,7 @@ Dowonload ---> [[Quay.io](https://quay.io/repository/tnk4on/powercli): [![tnk4on
 
 [English](README.md) / [Japanese](README_ja.md)
 
-!!! このリポジトリでは[Podman](https://github.com/containers/podman)と[Buildah](https://github.com/containers/buildah)での使用を前提として記載しています。Dockerをお使いの場合は適宜読み替えてください。 !!! 
+- このリポジトリでは[Podman](https://github.com/containers/podman)と[Buildah](https://github.com/containers/buildah)での使用を前提として記載しています。Dockerをお使いの場合は適宜読み替えてください。
 
 ## 概要
 

@@ -1,6 +1,6 @@
 # Powercli: Container Image
 
-!!! This repository assumes the use of [Podman](https://github.com/containers/podman) and [Buildah](https://github.com/containers/buildah). If you are using Docker, please read as appropriate. !!!
+- This repository assumes the use of [Podman](https://github.com/containers/podman) and [Buildah](https://github.com/containers/buildah). If you are using Docker, please read as appropriate.
 
 ## Description
 

@@ -4,6 +4,7 @@ LABEL maintainer="Shion Tanaka / Twitter(@tnk4on)"
 ENV TERM=linux \
     POWERSHELL_TELEMETRY_OPTOUT=1
 
+# PowerShell Releases from https://github.com/PowerShell/PowerShell/releases
 ARG PS_PACKAGE=powershell-7.1.4-1.rhel.7.x86_64.rpm
 ARG PS_PACKAGE_URL=https://github.com/PowerShell/PowerShell/releases/download/v7.1.4/powershell-7.1.4-1.rhel.7.x86_64.rpm
 

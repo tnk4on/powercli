@@ -22,3 +22,4 @@ RUN microdnf update --disableplugin=subscription-manager -y \
             Set-PSRepository -Name PSGallery -InstallationPolicy Trusted ; \
             Install-Module -Name VMware.PowerCLI"
 CMD ["/bin/pwsh"]
+#

@@ -12,4 +12,4 @@ RUN pwsh \
             Set-PSRepository -Name PSGallery -InstallationPolicy Trusted ; \
             Install-Module -Name VMware.PowerCLI"
 CMD ["/usr/bin/pwsh"]
-#
+##

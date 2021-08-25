@@ -41,7 +41,7 @@ $ podman run --rm -it tnk4on/powercli
 ```
 $ git clone https://github.com/tnk4on/powercli
 $ cd powercli/Containerfile.d
-$ TYPE=mcr-alpine
+$ TYPE=mcr-alpine-3.12
 $ buildah bud -t tnk4on/powercli -f Containerfile.${TYPE}
 ```
 注釈: `TYPE` にはビルドしたい名前を指定 (例 alpine-scratch)

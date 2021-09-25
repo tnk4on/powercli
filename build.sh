@@ -16,6 +16,7 @@ for f in Containerfile*
 do
     echo -e "\n### Run ${f/Containerfile./} ###"
     podman run --rm powercli:${f/Containerfile./} pwsh -v
+    podman run --rm -t powercli:${f/Containerfile./} pwsh -c Get-InstalledModule |grep VMware.PowerCLI
 done
 
 # Push to Docker.io

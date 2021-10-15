@@ -1,7 +1,7 @@
-# Containerfile for tnk4on/powercli:mcr-alpine-3.12
+# Containerfile for tnk4on/powercli:mcr-alpine-3.13
 # Base Image from https://hub.docker.com/_/microsoft-powershell
 
-FROM mcr.microsoft.com/powershell:alpine-3.12
+FROM mcr.microsoft.com/powershell:alpine-3.13
 LABEL maintainer="Shion Tanaka / Twitter(@tnk4on)"
 ENV TERM=linux \
     POWERSHELL_TELEMETRY_OPTOUT=1

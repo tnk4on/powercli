@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo "login to docker.io"
 podman login docker.io
 CURDIR=$PWD
 cd Containerfile.d
@@ -24,7 +25,7 @@ for f in Containerfile*
 do
     echo -e "\n### Push powercli:${f/Containerfile./} ###"
     podman push powercli:${f/Containerfile./} docker.io/tnk4on/powercli:${f/Containerfile./} --format v2s2
-    if [ "${f/Containerfile./}" = "mcr-alpine-3.12" ]; then
+    if [ "${f/Containerfile./}" = "mcr-alpine" ]; then
         echo -e "\n### Push powercli:latest"
         podman push powercli:${f/Containerfile./} docker.io/tnk4on/powercli --format v2s2
     fi

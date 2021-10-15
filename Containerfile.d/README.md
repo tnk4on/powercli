@@ -1,5 +1,7 @@
 # Powercli: Container Image
 
+Curent Version: PowerShell:`v7.1.5`
+
 - This repository assumes the use of [Podman](https://github.com/containers/podman) and [Buildah](https://github.com/containers/buildah). If you are using Docker, please read as appropriate.
 
 ## Description
@@ -14,10 +16,10 @@
 ## About container images
 
 There are four types of container images depending on how they are built
-- `tnk4on/powercli:latest,mcr-alpine-3.12` -> Base Image:`mcr.microsoft.com/powershell:mcr-alpine-3.12` (include PowerShell:`v7.1.4`)
-- `tnk4on/powercli:ubi8-minimal` -> Base Image:`ubi8-minimal` + PowerShell:`v7.1.4`
-- `tnk4on/powercli:alpine-scratch` -> Base Image:`alpine` + PowerShell:`v7.1.4`
-- `tnk4on/powercli:photon` -> Base Image:`photon:4.0` + PowerShell:`v7.1.4`
+- `tnk4on/powercli:latest,mcr-alpine-3.13` -> Base Image:`mcr.microsoft.com/powershell:mcr-alpine-3.13`
+- `tnk4on/powercli:ubi8-minimal` -> Base Image:`ubi8-minimal`
+- `tnk4on/powercli:alpine-scratch` -> Base Image:`alpine`
+- `tnk4on/powercli:photon` -> Base Image:`photon:4.0`
 
 ### Features
 

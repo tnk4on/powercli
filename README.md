@@ -43,12 +43,12 @@ Note: `CMD` is set to `pwsh` command. You can override the execution command by 
 ```
 $ git clone https://github.com/tnk4on/powercli
 $ cd powercli/Containerfile.d
-$ TYPE=mcr-alpine-3.12
+$ TYPE=mcr-alpine
 $ buildah bud -t tnk4on/powercli -f Containerfile.${TYPE}
 ```
 Note: `TYPE` is the name you want to build with (e.g. alpine-scratch)
 - `TYPE`
     - alpine-scratch
-    - mcr-alpine-3.12
+    - mcr-alpine
     - photon
     - ubi8-minimal

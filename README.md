@@ -1,6 +1,6 @@
 # Powercli: Container Image
 
-Curent Version: PowerShell:`v7.1.5`
+Curent Version: PowerShell:`v7.2.0`
 
 Dowonload ---> [[Quay.io](https://quay.io/repository/tnk4on/powercli): [![tnk4on/powercli on Quay.io](https://quay.io/repository/tnk4on/powercli/status "tnk4on/powercli on Quay.io")](https://quay.io/repository/tnk4on/powercli)] or [[Docker.io](https://hub.docker.com/r/tnk4on/powercli)]
 
@@ -20,9 +20,9 @@ Dowonload ---> [[Quay.io](https://quay.io/repository/tnk4on/powercli): [![tnk4on
 ## About container images
 
 There are four types of container images depending on how they are built
-- `tnk4on/powercli:latest,mcr-alpine-3.13` -> Base Image:`mcr.microsoft.com/powershell:mcr-alpine-3.13`
-- `tnk4on/powercli:ubi8-minimal` -> Base Image:`ubi8-minimal`
-- `tnk4on/powercli:alpine-scratch` -> Base Image:`alpine`
+- `tnk4on/powercli:latest,mcr-alpine-3.14` -> Base Image:`mcr.microsoft.com/powershell:mcr-alpine-3.14`
+- `tnk4on/powercli:ubi8-minimal` -> Base Image:`ubi8-minimal:latest`
+- `tnk4on/powercli:alpine-scratch` -> Base Image:`alpine:3.14`
 - `tnk4on/powercli:photon` -> Base Image:`photon:4.0`
 
 ### Features

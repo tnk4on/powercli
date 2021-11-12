@@ -1,13 +1,13 @@
 # Containerfile for tnk4on/powercli:ubi8-minimal
 FROM registry.access.redhat.com/ubi8/ubi-minimal
 LABEL maintainer="Shion Tanaka / Twitter(@tnk4on)"
-ENV TERM=linux \
+ENV TERM=xterm-256color \
     POWERSHELL_TELEMETRY_OPTOUT=1
 
 # PowerShell Releases from https://github.com/PowerShell/PowerShell/releases
-ARG PS_VERSION=7.1.5
-ARG PS_PACKAGE=powershell-${PS_VERSION}-1.rhel.7.x86_64.rpm
-ARG PS_PACKAGE_URL=https://github.com/PowerShell/PowerShell/releases/download/v${PS_VERSION}/powershell-${PS_VERSION}-1.rhel.7.x86_64.rpm
+ARG PS_VERSION=7.2.0
+ARG PS_PACKAGE=powershell-${PS_VERSION}-1.rh.x86_64.rpm
+ARG PS_PACKAGE_URL=https://github.com/PowerShell/PowerShell/releases/download/v${PS_VERSION}/${PS_PACKAGE}
 
 RUN microdnf update --disableplugin=subscription-manager -y \
 && microdnf --disableplugin=subscription-manager install libicu -y \

@@ -5,11 +5,11 @@ FROM photon:4.0
 LABEL maintainer="Shion Tanaka / Twitter(@tnk4on)"
 
 # PowerShell Releases from https://github.com/PowerShell/PowerShell/releases
-ARG PS_VERSION=7.1.5
+ARG PS_VERSION=7.2.0
 ARG PS_PACKAGE=powershell-${PS_VERSION}-linux-x64.tar.gz
 ARG PS_PACKAGE_URL=https://github.com/PowerShell/PowerShell/releases/download/v${PS_VERSION}/${PS_PACKAGE}
 
-ENV TERM=linux \
+ENV TERM=xterm-256color \
     DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 \
     POWERSHELL_TELEMETRY_OPTOUT=1
 
@@ -18,7 +18,7 @@ WORKDIR /root
 # Set terminal. If we don't do this, weird readline things happen.
 RUN echo "/usr/bin/pwsh" >> /etc/shells && \
     echo "/bin/pwsh" >> /etc/shells && \
-    tdnf install -y wget tar icu powershell git unzip && \
+    tdnf install -y wget tar icu powershell git unzip ncurses-terminfo && \
     wget ${PS_PACKAGE_URL} && \
     tar -xvf /root/${PS_PACKAGE} -C /usr/lib/powershell && \
     rm -f /root/${PS_PACKAGE} } && \

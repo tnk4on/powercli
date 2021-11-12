@@ -1,9 +1,9 @@
-# Containerfile for tnk4on/powercli:mcr-alpine-3.13
+# Containerfile for tnk4on/powercli:mcr-alpine-3.14
 # Base Image from https://hub.docker.com/_/microsoft-powershell
 
-FROM mcr.microsoft.com/powershell:alpine-3.13
+FROM mcr.microsoft.com/powershell:alpine-3.14
 LABEL maintainer="Shion Tanaka / Twitter(@tnk4on)"
-ENV TERM=linux \
+ENV TERM=xterm-256color \
     POWERSHELL_TELEMETRY_OPTOUT=1
 RUN pwsh \
         -NoLogo \
@@ -11,4 +11,4 @@ RUN pwsh \
         -Command " \
             Set-PSRepository -Name PSGallery -InstallationPolicy Trusted ; \
             Install-Module -Name VMware.PowerCLI"
-CMD ["/usr/bin/pwsh"]
+CMD ["pwsh"]

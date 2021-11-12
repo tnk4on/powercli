@@ -1,12 +1,12 @@
 # Containerfile for tnk4on/powercli:alpine-scratch
-FROM alpine
+FROM alpine:3.14
 LABEL maintainer="Shion Tanaka / Twitter(@tnk4on)"
-ENV TERM=linux \
+ENV TERM=xterm-256color \
     DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 \
     POWERSHELL_TELEMETRY_OPTOUT=1
 
 # PowerShell Releases from https://github.com/PowerShell/PowerShell/releases
-ARG PS_VERSION=7.1.5
+ARG PS_VERSION=7.2.0
 ARG PS_PACKAGE=powershell-${PS_VERSION}-linux-alpine-x64.tar.gz
 ARG PS_PACKAGE_URL=https://github.com/PowerShell/PowerShell/releases/download/v${PS_VERSION}/powershell-${PS_VERSION}-linux-alpine-x64.tar.gz
 

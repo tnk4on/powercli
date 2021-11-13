@@ -8,7 +8,7 @@ ENV TERM=xterm-256color \
 # PowerShell Releases from https://github.com/PowerShell/PowerShell/releases
 ARG PS_VERSION=7.2.0
 ARG PS_PACKAGE=powershell-${PS_VERSION}-linux-alpine-x64.tar.gz
-ARG PS_PACKAGE_URL=https://github.com/PowerShell/PowerShell/releases/download/v${PS_VERSION}/powershell-${PS_VERSION}-linux-alpine-x64.tar.gz
+ARG PS_PACKAGE_URL=https://github.com/PowerShell/PowerShell/releases/download/v${PS_VERSION}/${PS_PACKAGE}
 
 WORKDIR /root
 RUN apk --no-cache add gcc ncurses-terminfo-base \
